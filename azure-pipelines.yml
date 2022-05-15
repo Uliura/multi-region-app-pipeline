@@ -20,6 +20,8 @@ stages:
         displayName: build app
         pool:
           name: My-AKS-Pool
+        variables:
+          pythonVersion: '3.7'
         steps:
           - template: buildapp.yml
 

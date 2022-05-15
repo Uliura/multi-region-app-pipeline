@@ -1,7 +1,4 @@
 ---
-variables:
-environmentName: 'pythonwebapps'
-pythonVersion: '3.7'
 steps:
 
     - task: UsePythonVersion@0
