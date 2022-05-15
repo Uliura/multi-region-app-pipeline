@@ -1,0 +1,34 @@
+---
+trigger: none
+stages:
+    - stage: terraform
+      displayName: Build infrastructure
+      jobs:
+      - job: Terraform_Plan
+        displayName: Terraform Init, Plan & Apply
+        pool:
+          name: My-AKS-Pool
+        variables:
+        - group: Terraform-Variable-Group
+        steps:
+          - template: terraform.yml
+              
+    - stage: BuildApp
+      displayName: Build webapp
+      jobs:
+      - job: buildapp
+        displayName: build app
+        pool:
+          name: My-AKS-Pool
+        steps:
+          - template: buildapp.yml
+
+    - stage: DeployApp
+      displayName: Deploy app
+      jobs:
+      - job: Deployapp
+        displayName: Deploy app
+        pool:
+          name: My-AKS-Pool
+        steps:
+          - template: deploy.yml

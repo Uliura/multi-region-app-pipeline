@@ -1,0 +1,23 @@
+---
+steps:
+  - task: TerraformTaskV2@2
+    inputs:
+      provider: "azurerm"
+      command: "init"
+      backendServiceArm: 'Free Subscription(664b98cb-cc33-4ac5-a541-f8cf0203bb97)'
+      backendAzureRmResourceGroupName: "AzureDevOps"
+      backendAzureRmStorageAccountName: "storadgeforazuredevops"
+      backendAzureRmContainerName: "terrablobs"
+      backendAzureRmKey: "terraform.tfstate"
+  - task: TerraformTaskV2@2
+    inputs:
+      provider: "azurerm"
+      command: "plan"
+      commandOptions: '-out=tfplan'
+      environmentServiceNameAzureRM: 'Free Subscription(664b98cb-cc33-4ac5-a541-f8cf0203bb97)'
+  - task: TerraformTaskV2@2
+    inputs:
+      provider: "azurerm"
+      command: "apply"
+      commandOptions: "tfplan"
+      environmentServiceNameAzureRM: 'Free Subscription(664b98cb-cc33-4ac5-a541-f8cf0203bb97)'
