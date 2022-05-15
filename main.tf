@@ -16,7 +16,7 @@ module "EastAsiaApp" {
   app_plan_os_type          = var.APP_PLAN_OS_TYPE
   app_service_name          = var.APP_SERVICE_NAME_1
   app_slot_name             = var.APP_SLOT_NAME
-  dotnet_version            = var.DOTNET_VERSION
+  python_version            = var.PYTHON_VERSION
 depends_on = [ 
   azurerm_resource_group.rg  
 ]
@@ -31,7 +31,7 @@ module "EastUsaApp" {
   app_plan_os_type          = var.APP_PLAN_OS_TYPE
   app_service_name          = var.APP_SERVICE_NAME_2
   app_slot_name             = var.APP_SLOT_NAME
-  dotnet_version            = var.DOTNET_VERSION
+  python_version            = var.PYTHON_VERSION
 depends_on = [ 
   azurerm_resource_group.rg  
 ]

@@ -14,7 +14,7 @@ resource "azurerm_linux_web_app" "webapp" {
 
   site_config {
     application_stack {
-      dotnet_version = var.dotnet_version
+      python_version = var.python_version
   }
  
   }
@@ -25,7 +25,7 @@ resource "azurerm_linux_web_app_slot" "slot" {
 
   site_config {
     application_stack {
-      dotnet_version = var.dotnet_version
+      python_version = var.python_version
 
   }
  

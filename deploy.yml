@@ -5,7 +5,7 @@ steps:
       artifactName: drop
       downloadPath: "$(System.DefaultWorkingDirectory)"
 
-  - task: AzureFunctionApp@1 
+  - task: AzureWebApp@1 
     inputs:
       azureSubscription: "MultiRegionAppSC"
       appType: functionAppLinux 
@@ -15,7 +15,7 @@ steps:
       resourceGroupName: "$(TF_VAR_RESOURCE_GROUP_NAME)"
       slotName: "$(TF_VAR_APP_SLOT_NAME)"
 
-  - task: AzureFunctionApp@1 
+  - task: AzureWebApp@1 
     inputs:
       azureSubscription: "MultiRegionAppSC"
       appType: functionAppLinux 
