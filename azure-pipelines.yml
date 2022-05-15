@@ -1,5 +1,7 @@
 ---
 trigger: none
+variables:
+  - group: Terraform-Variable-Group
 stages:
     - stage: terraform
       displayName: Build infrastructure
@@ -8,8 +10,6 @@ stages:
         displayName: Terraform Init, Plan & Apply
         pool:
           name: My-AKS-Pool
-        variables:
-        - group: Terraform-Variable-Group
         steps:
           - template: terraform.yml
               
