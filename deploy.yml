@@ -13,6 +13,7 @@ steps:
       package: $(System.DefaultWorkingDirectory)/**/*.zip
       deployToSlotOrASE: true
       resourceGroupName: "$(TF_VAR_RESOURCE_GROUP_NAME)"
+      deploymentMethod: 'zipDeploy'
       slotName: "$(TF_VAR_APP_SLOT_NAME)"
 
   - task: AzureWebApp@1 
@@ -23,6 +24,7 @@ steps:
       package: $(System.DefaultWorkingDirectory)/**/*.zip
       deployToSlotOrASE: true
       resourceGroupName: "$(TF_VAR_RESOURCE_GROUP_NAME)"
+      deploymentMethod: 'zipDeploy'
       slotName: "$(TF_VAR_APP_SLOT_NAME)"
 
   - task: AzureAppServiceManage@0
