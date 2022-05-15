@@ -46,6 +46,6 @@ resource "azurerm_frontdoor" "frontdoor" {
 
   frontend_endpoint {
     name      = "FrontendEndpoint"
-    host_name = "gekaexample"
+    host_name = "gekafrontdoor-dyazcbbthxgygvd7.z01.azurefd.net"
   }
 }
