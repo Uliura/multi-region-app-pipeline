@@ -4,7 +4,7 @@ steps:
     inputs:
       provider: "azurerm"
       command: "init"
-      backendServiceArm: 'Free Subscription(664b98cb-cc33-4ac5-a541-f8cf0203bb97)'
+      backendServiceArm: 'MultiRegionAppSC'
       backendAzureRmResourceGroupName: "AzureDevOps"
       backendAzureRmStorageAccountName: "storadgeforazuredevops"
       backendAzureRmContainerName: "terrablobs"
@@ -14,10 +14,10 @@ steps:
       provider: "azurerm"
       command: "plan"
       commandOptions: '-out=tfplan'
-      environmentServiceNameAzureRM: 'Free Subscription(664b98cb-cc33-4ac5-a541-f8cf0203bb97)'
+      environmentServiceNameAzureRM: 'MultiRegionAppSC'
   - task: TerraformTaskV2@2
     inputs:
       provider: "azurerm"
       command: "apply"
       commandOptions: "tfplan"
-      environmentServiceNameAzureRM: 'Free Subscription(664b98cb-cc33-4ac5-a541-f8cf0203bb97)'
+      environmentServiceNameAzureRM: 'MultiRegionAppSC'

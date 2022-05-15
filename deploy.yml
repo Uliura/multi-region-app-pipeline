@@ -8,7 +8,7 @@ steps:
   - task: AzureRmWebAppDeployment@3
     displayName: "Deploy Azure App Service"
     inputs:
-      azureSubscription: "Free Subscription(664b98cb-cc33-4ac5-a541-f8cf0203bb97)"
+      azureSubscription: "MultiRegionAppSC"
       appType: "app"
       WebAppName: "$(APP_SERVICE_NAME_1)"
       Package: "$(System.DefaultWorkingDirectory)/**/*.zip"
@@ -16,7 +16,7 @@ steps:
   - task: AzureRmWebAppDeployment@3
     displayName: "Deploy Azure App Service"
     inputs:
-      azureSubscription: "Free Subscription(664b98cb-cc33-4ac5-a541-f8cf0203bb97)"
+      azureSubscription: "MultiRegionAppSC"
       appType: "app"
       WebAppName: "$(APP_SERVICE_NAME_2)"
       Package: "$(System.DefaultWorkingDirectory)/**/*.zip"
