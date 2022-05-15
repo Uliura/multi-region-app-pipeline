@@ -1,7 +1,9 @@
 ---
 trigger: none
+
 variables:
   - group: Terraform-Variable-Group
+
 stages:
     - stage: terraform
       displayName: Build infrastructure
