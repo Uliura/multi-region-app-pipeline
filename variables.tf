@@ -51,10 +51,3 @@ variable "APP_PLAN_OS_TYPE" {
   }
 }
 
-variable "CURRENT_STACK" {
-  type        = string
-}
-
-variable "DOTNET_VERSION" {
-  type        = string
-}

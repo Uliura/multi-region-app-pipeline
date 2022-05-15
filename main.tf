@@ -7,7 +7,7 @@ resource "azurerm_resource_group" "rg" {
   location = var.LOCATION
 }
 
-module "WestEuropeApp" {
+module "NorthEuropeApp" {
   source                    = "./modules/App"
   app_service_plan_name     = var.APP_SERVICE_PLAN_NAME_1
   resource_group_name       = var.RESOURCE_GROUP_NAME
@@ -15,8 +15,6 @@ module "WestEuropeApp" {
   app_plan_sku_name         = var.APP_PLAN_SKU_NAME
   app_plan_os_type          = var.APP_PLAN_OS_TYPE
   app_service_name          = var.APP_SERVICE_NAME_1
-  current_stack             = var.CURRENT_STACK
-  dotnet_version            = var.DOTNET_VERSION
 }
 
 module "EastUsaApp" {
@@ -27,6 +25,4 @@ module "EastUsaApp" {
   app_plan_sku_name         = var.APP_PLAN_SKU_NAME
   app_plan_os_type          = var.APP_PLAN_OS_TYPE
   app_service_name          = var.APP_SERVICE_NAME_2
-  current_stack             = var.CURRENT_STACK
-  dotnet_version            = var.DOTNET_VERSION
 }
