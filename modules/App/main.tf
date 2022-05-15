@@ -13,6 +13,9 @@ resource "azurerm_linux_web_app" "webapp" {
   service_plan_id     = azurerm_service_plan.app_plan.id
 
   site_config {
+    application_stack {
+      dotnet_version = var.dotnet_version
+  }
  
   }
 }
@@ -20,5 +23,11 @@ resource "azurerm_linux_web_app_slot" "slot" {
   name           = var.app_slot_name
   app_service_id = azurerm_linux_web_app.webapp.id
 
-  site_config {}
+  site_config {
+    application_stack {
+      dotnet_version = var.dotnet_version
+
+  }
+ 
+  }
 }

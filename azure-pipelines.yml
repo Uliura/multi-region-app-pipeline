@@ -19,7 +19,7 @@ stages:
       - job: buildapp
         displayName: build app
         pool:
-          name: My-AKS-Pool
+          vmImage: windows-latest
         steps:
           - template: buildapp.yml
 

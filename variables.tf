@@ -55,3 +55,7 @@ variable "APP_SLOT_NAME" {
   type        = string
   description = "App slot name in Azure"
 }
+
+variable "DOTNET_VERSION" {
+  type        = string
+}
