@@ -38,8 +38,8 @@ variable "APP_SERVICE_NAME_2" {
 variable "APP_PLAN_SKU_NAME" {
   type        = string
     validation {
-    condition     = contains(["Free F1","B1"], var.APP_PLAN_SKU_NAME)
-    error_message = "The Plan value can be Free F1 or B1 only."
+    condition     = contains(["S1","P1V2"], var.APP_PLAN_SKU_NAME)
+    error_message = "The Plan value can be S1 or P1V2 only."
   }
 }
 

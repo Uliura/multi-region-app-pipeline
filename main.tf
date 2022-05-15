@@ -7,7 +7,7 @@ resource "azurerm_resource_group" "rg" {
   location = var.LOCATION
 }
 
-module "NorthEuropeApp" {
+module "EastAsiaApp" {
   source                    = "./modules/App"
   app_service_plan_name     = var.APP_SERVICE_PLAN_NAME_1
   resource_group_name       = var.RESOURCE_GROUP_NAME
