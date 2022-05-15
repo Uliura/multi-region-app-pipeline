@@ -1,5 +1,5 @@
 resource "azurerm_frontdoor" "frontdoor" {
-  name                = "gekafrontdoor"
+  name                = "FrontendEndpoint"
   resource_group_name = var.resource_group_name
 
   routing_rule {
