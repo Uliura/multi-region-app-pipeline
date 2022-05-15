@@ -1,37 +1,42 @@
 ---
 steps:
-- task: AzureFunctionApp@1 
-  inputs:
-    azureSubscription: "MultiRegionAppSC"
-    appType: functionAppLinux 
-    appName: "$(APP_SERVICE_NAME_1)"
-    package: $(System.ArtifactsDirectory)/**/*.zip
-    deployToSlotOrASE: true
-    resourceGroupName: "$(RESOURCE_GROUP_NAME)"
-    slotName: "$(APP_SLOT_NAME)"
+  - task: DownloadBuildArtifacts@0
+    inputs:
+      artifactName: drop
+      downloadPath: "$(System.DefaultWorkingDirectory)"
 
-- task: AzureFunctionApp@1 
-  inputs:
-    azureSubscription: "MultiRegionAppSC"
-    appType: functionAppLinux 
-    appName: "$(APP_SERVICE_NAME_2)"
-    package: $(System.ArtifactsDirectory)/**/*.zip
-    deployToSlotOrASE: true
-    resourceGroupName: "$(RESOURCE_GROUP_NAME)"
-    slotName: "$(APP_SLOT_NAME)"
+  - task: AzureFunctionApp@1 
+    inputs:
+      azureSubscription: "MultiRegionAppSC"
+      appType: functionAppLinux 
+      appName: "$(APP_SERVICE_NAME_1)"
+      package: $(System.DefaultWorkingDirectory)/**/*.zip
+      deployToSlotOrASE: true
+      resourceGroupName: "$(RESOURCE_GROUP_NAME)"
+      slotName: "$(APP_SLOT_NAME)"
 
-- task: AzureAppServiceManage@0
-  inputs:
-    azureSubscription: "MultiRegionAppSC"
-    WebAppName: "$(APP_SERVICE_NAME_1)"
-    ResourceGroupName: "$(RESOURCE_GROUP_NAME)"
-    SourceSlot: "$(APP_SLOT_NAME)"
-    SwapWithProduction: true
+  - task: AzureFunctionApp@1 
+    inputs:
+      azureSubscription: "MultiRegionAppSC"
+      appType: functionAppLinux 
+      appName: "$(APP_SERVICE_NAME_2)"
+      package: $(System.DefaultWorkingDirectory)/**/*.zip
+      deployToSlotOrASE: true
+      resourceGroupName: "$(RESOURCE_GROUP_NAME)"
+      slotName: "$(APP_SLOT_NAME)"
 
-- task: AzureAppServiceManage@0
-  inputs:
-    azureSubscription: "MultiRegionAppSC"
-    WebAppName: "$(APP_SERVICE_NAME_2)"
-    ResourceGroupName: "$(RESOURCE_GROUP_NAME)"
-    SourceSlot: "$(APP_SLOT_NAME)"
-    SwapWithProduction: true
+  - task: AzureAppServiceManage@0
+    inputs:
+      azureSubscription: "MultiRegionAppSC"
+      WebAppName: "$(APP_SERVICE_NAME_1)"
+      ResourceGroupName: "$(RESOURCE_GROUP_NAME)"
+      SourceSlot: "$(APP_SLOT_NAME)"
+      SwapWithProduction: true
+
+  - task: AzureAppServiceManage@0
+    inputs:
+      azureSubscription: "MultiRegionAppSC"
+      WebAppName: "$(APP_SERVICE_NAME_2)"
+      ResourceGroupName: "$(RESOURCE_GROUP_NAME)"
+      SourceSlot: "$(APP_SLOT_NAME)"
+      SwapWithProduction: true
