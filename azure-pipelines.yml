@@ -21,7 +21,7 @@ stages:
       - job: buildapp
         displayName: build app
         pool:
-          name: My-AKS-Pool
+          name: Azure Pipelines
         steps:
           - template: buildapp.yml
 
