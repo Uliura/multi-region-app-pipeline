@@ -46,6 +46,6 @@ resource "azurerm_frontdoor" "frontdoor" {
 
   frontend_endpoint {
     name      = "FrontendEndpoint"
-    host_name = "frontendendpoint-dyazcbbthxgygvd7.z01.azurefd.net"
+    host_name = "frontendendpoint.dyazcbbthxgygvd7.z01.azurefd.net"
   }
 }
