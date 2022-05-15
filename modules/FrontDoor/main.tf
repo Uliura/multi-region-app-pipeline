@@ -1,5 +1,5 @@
 resource "azurerm_frontdoor" "frontdoor" {
-  name                = "frontdoor"
+  name                = "gekafrontdoor"
   resource_group_name = var.resource_group_name
 
   routing_rule {
