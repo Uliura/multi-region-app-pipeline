@@ -1,4 +1,5 @@
 ---
+steps:
 - task: AzureFunctionApp@1 
   inputs:
     azureSubscription: "MultiRegionAppSC"
