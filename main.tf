@@ -36,3 +36,12 @@ depends_on = [
   azurerm_resource_group.rg  
 ]
 }
+
+module "frontdoor" {
+  source                    = "./modules/FrontDoor"
+  resource_group_name       = var.RESOURCE_GROUP_NAME 
+depends_on = [ 
+  module.SecondApp,
+  module.FirstApp 
+]
+}
