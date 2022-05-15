@@ -15,6 +15,9 @@ module "NorthEuropeApp" {
   app_plan_sku_name         = var.APP_PLAN_SKU_NAME
   app_plan_os_type          = var.APP_PLAN_OS_TYPE
   app_service_name          = var.APP_SERVICE_NAME_1
+depends_on = [ 
+  azurerm_resource_group.rg  
+]
 }
 
 module "EastUsaApp" {
@@ -25,4 +28,7 @@ module "EastUsaApp" {
   app_plan_sku_name         = var.APP_PLAN_SKU_NAME
   app_plan_os_type          = var.APP_PLAN_OS_TYPE
   app_service_name          = var.APP_SERVICE_NAME_2
+depends_on = [ 
+  azurerm_resource_group.rg  
+]
 }
