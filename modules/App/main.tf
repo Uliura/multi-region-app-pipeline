@@ -6,21 +6,19 @@ resource "azurerm_service_plan" "app_plan" {
   os_type             = var.app_plan_os_type
 }
 
-resource "azurerm_windows_web_app" "webapp" {
+resource "azurerm_linux_web_app" "webapp" {
   name                = var.app_service_name
   resource_group_name = var.resource_group_name
   location            = var.location
   service_plan_id     = azurerm_service_plan.app_plan.id
 
   site_config {
-#   application_stack {
-#     current_stack = var.current_stack
-#     dotnet_version = var.dotnet_version
-#  }
  
   }
+}
+resource "azurerm_linux_web_app_slot" "slot" {
+  name           = var.app_slot_name
+  app_service_id = azurerm_linux_web_app.webapp.id
 
-# app_settings = {
-#   "SOME_KEY" = "some-value"
-# }
+  site_config {}
 }

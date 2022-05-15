@@ -51,3 +51,7 @@ variable "APP_PLAN_OS_TYPE" {
   }
 }
 
+variable "APP_SLOT_NAME" {
+  type        = string
+  description = "App slot name in Azure"
+}
