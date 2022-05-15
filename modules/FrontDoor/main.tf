@@ -1,12 +1,12 @@
 resource "azurerm_frontdoor" "frontdoor" {
-  name                = "FrontendEndpoint"
+  name                = "geka-frontend-endpoint-test"
   resource_group_name = var.resource_group_name
 
   routing_rule {
     name               = "RoutingRule"
     accepted_protocols = ["Http", "Https"]
     patterns_to_match  = ["/*"]
-    frontend_endpoints = ["FrontendEndpoint"]
+    frontend_endpoints = ["geka-frontend-endpoint-test"]
     forwarding_configuration {
       forwarding_protocol = "MatchRequest"
       backend_pool_name   = "Backend"
@@ -45,7 +45,7 @@ resource "azurerm_frontdoor" "frontdoor" {
   }
 
   frontend_endpoint {
-    name      = "FrontendEndpoint"
-    host_name = "frontendendpoint.dyazcbbthxgygvd7.z01.azurefd.net"
+    name      = "geka-frontend-endpoint-test"
+    host_name = "geka-frontend-endpoint-test.azurefd.net"
   }
 }
