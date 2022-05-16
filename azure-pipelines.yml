@@ -13,6 +13,12 @@ stages:
         pool:
           name: pipeline-agent
         steps:
+          - task: AzureCLI@2
+            inputs:
+              azureSubscription: 'AzureSC'
+              scriptType: 'bash'
+              scriptLocation: 'inlineScript'
+              inlineScript: 'az login'
           - template: terraform.yml
               
     - stage: BuildApp
