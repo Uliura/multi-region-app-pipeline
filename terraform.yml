@@ -4,7 +4,7 @@ steps:
     inputs:
       provider: "azurerm"
       command: "init"
-      backendServiceArm: 'StudySubscription(a4634be0-8c57-4abe-9c19-60e1f7843718)'
+      backendServiceArm: 'AzureSC'
       backendAzureRmResourceGroupName: "AzureDevOps"
       backendAzureRmStorageAccountName: "storadgeforazuredevops"
       backendAzureRmContainerName: "tfstate"
@@ -14,10 +14,10 @@ steps:
       provider: "azurerm"
       command: "plan"
       commandOptions: '-out=tfplan'
-      environmentServiceNameAzureRM: 'StudySubscription(a4634be0-8c57-4abe-9c19-60e1f7843718)'
+      environmentServiceNameAzureRM: 'AzureSC'
   - task: TerraformTaskV2@2
     inputs:
       provider: "azurerm"
       command: "apply"
       commandOptions: "tfplan"
-      environmentServiceNameAzureRM: 'StudySubscription(a4634be0-8c57-4abe-9c19-60e1f7843718)'
+      environmentServiceNameAzureRM: 'AzureSC'
