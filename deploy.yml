@@ -7,7 +7,7 @@ steps:
 
   - task: AzureWebApp@1 
     inputs:
-      azureSubscription: "MultiRegionAppSC"
+      azureSubscription: 'AzureSC'
       appType: functionAppLinux 
       appName: "$(TF_VAR_APP_SERVICE_NAME_1)"
       package: $(System.DefaultWorkingDirectory)/**/*.zip
@@ -18,7 +18,7 @@ steps:
 
   - task: AzureWebApp@1 
     inputs:
-      azureSubscription: "MultiRegionAppSC"
+      azureSubscription: 'AzureSC'
       appType: functionAppLinux 
       appName: "$(TF_VAR_APP_SERVICE_NAME_2)"
       package: $(System.DefaultWorkingDirectory)/**/*.zip
@@ -29,7 +29,7 @@ steps:
 
   - task: AzureAppServiceManage@0
     inputs:
-      azureSubscription: "MultiRegionAppSC"
+      azureSubscription: 'AzureSC'
       WebAppName: "$(TF_VAR_APP_SERVICE_NAME_1)"
       ResourceGroupName: "$(TF_VAR_RESOURCE_GROUP_NAME)"
       SourceSlot: "$(TF_VAR_APP_SLOT_NAME)"
@@ -37,7 +37,7 @@ steps:
 
   - task: AzureAppServiceManage@0
     inputs:
-      azureSubscription: "MultiRegionAppSC"
+      azureSubscription: 'AzureSC'
       WebAppName: "$(TF_VAR_APP_SERVICE_NAME_2)"
       ResourceGroupName: "$(TF_VAR_RESOURCE_GROUP_NAME)"
       SourceSlot: "$(TF_VAR_APP_SLOT_NAME)"

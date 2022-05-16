@@ -4,20 +4,20 @@ steps:
     inputs:
       provider: "azurerm"
       command: "init"
-      backendServiceArm: 'MultiRegionAppSC'
+      backendServiceArm: 'AzureSC'
       backendAzureRmResourceGroupName: "AzureDevOps"
       backendAzureRmStorageAccountName: "storadgeforazuredevops"
-      backendAzureRmContainerName: "terrablobs"
+      backendAzureRmContainerName: "tfstate"
       backendAzureRmKey: "terraform.tfstate"
   - task: TerraformTaskV2@2
     inputs:
       provider: "azurerm"
       command: "plan"
       commandOptions: '-out=tfplan'
-      environmentServiceNameAzureRM: 'MultiRegionAppSC'
+      environmentServiceNameAzureRM: 'AzureSC'
   - task: TerraformTaskV2@2
     inputs:
       provider: "azurerm"
       command: "apply"
       commandOptions: "tfplan"
-      environmentServiceNameAzureRM: 'MultiRegionAppSC'
+      environmentServiceNameAzureRM: 'AzureSC'

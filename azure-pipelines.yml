@@ -11,7 +11,7 @@ stages:
       - job: Terraform_Plan
         displayName: Terraform Init, Plan & Apply
         pool:
-          name: My-AKS-Pool
+          name: Azure Pipelines
         steps:
           - template: terraform.yml
               
@@ -31,6 +31,6 @@ stages:
       - job: Deployapp
         displayName: Deploy app
         pool:
-          name: My-AKS-Pool
+          name: Azure Pipelines
         steps:
           - template: deploy.yml
