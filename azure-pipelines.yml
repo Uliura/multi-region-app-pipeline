@@ -18,7 +18,7 @@ stages:
               azureSubscription: 'AzureSC'
               scriptType: 'bash'
               scriptLocation: 'inlineScript'
-              inlineScript: 
+              inlineScript: 'az –version'
           - template: terraform.yml
               
     - stage: BuildApp
