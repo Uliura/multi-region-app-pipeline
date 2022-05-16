@@ -11,7 +11,7 @@ stages:
       - job: Terraform_Plan
         displayName: Terraform Init, Plan & Apply
         pool:
-          name: Azure Pipelines
+          name: pipeline-agent
         steps:
           - template: terraform.yml
               
@@ -21,7 +21,7 @@ stages:
       - job: buildapp
         displayName: build app
         pool:
-          name: Azure Pipelines
+          name: pipeline-agent
         steps:
           - template: buildapp.yml
 
@@ -31,6 +31,6 @@ stages:
       - job: Deployapp
         displayName: Deploy app
         pool:
-          name: Azure Pipelines
+          name: pipeline-agent
         steps:
           - template: deploy.yml
