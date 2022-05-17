@@ -8,7 +8,7 @@ steps:
       backendAzureRmResourceGroupName: "AzureDevOps"
       backendAzureRmStorageAccountName: "storadgeforazuredevops"
       backendAzureRmContainerName: "tfstate"
-      backendAzureRmKey: "terraform.tfstate"
+      backendAzureRmKey: "multiapp.tfstate"
   - task: TerraformTaskV2@2
     inputs:
       provider: "azurerm"
