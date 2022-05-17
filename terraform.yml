@@ -9,15 +9,19 @@ steps:
       backendAzureRmStorageAccountName: "storadgeforazuredevops"
       backendAzureRmContainerName: "tfstate"
       backendAzureRmKey: "multiapp.tfstate"
-  - task: TerraformTaskV2@2
+  - task: TerraformCLI@0
     inputs:
-      provider: "azurerm"
-      command: "plan"
+      command: 'plan'
+      environmentServiceName: 'AzureSC'
+      providerAzureRmSubscriptionId: 'a4634be0-8c57-4abe-9c19-60e1f7843718'
+      runAzLogin: true
       commandOptions: '-out=tfplan'
-      environmentServiceNameAzureRM: 'AzureSC'
-  - task: TerraformTaskV2@2
+      allowTelemetryCollection: false
+  - task: TerraformCLI@0
     inputs:
-      provider: "azurerm"
-      command: "apply"
-      commandOptions: "tfplan"
-      environmentServiceNameAzureRM: 'AzureSC'
+      command: 'apply'
+      environmentServiceName: 'AzureSC'
+      providerAzureRmSubscriptionId: 'a4634be0-8c57-4abe-9c19-60e1f7843718'
+      runAzLogin: true
+      commandOptions: 'tfplan'
+      allowTelemetryCollection: false
