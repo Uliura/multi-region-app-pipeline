@@ -30,7 +30,7 @@ stages:
               configMode: 'manual'
               cliProjectKey: 'MultiAppSlot_MultiAppSlot_AYD2ZFd6jCAKRy53Gje4'
               cliProjectName: 'sonar.projectName'
-              cliSources: '.'
+              cliSources: 'WebApp/*'
           - template: buildapp.yml
           - task: SonarQubeAnalyze@5
           - task: SonarQubePublish@5
