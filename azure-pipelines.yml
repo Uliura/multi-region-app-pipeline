@@ -20,7 +20,8 @@ stages:
       - job: buildapp
         displayName: build app
         pool:
-          name: pipeline-agent
+          name: Azure Pipelines 
+          vmImage: windows-latest
         steps:
           - task: SonarQubePrepare@5
             inputs:
