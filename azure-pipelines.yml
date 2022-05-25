@@ -28,7 +28,7 @@ stages:
               SonarQube: 'SonarQube'
               scannerMode: 'CLI'
               configMode: 'manual'
-              cliProjectKey: 'MultiAppSlot_MultiAppSlot_AYD2ZFd6jCAKRy53Gje4'
+              cliProjectKey: 'MultiAppSlot_MultiAppSlot_AYD5hYTwgtcmkojulzfz'
               cliProjectName: 'sonar.projectName'
               cliSources: '.'
           - template: buildapp.yml
