@@ -14,6 +14,7 @@ stages:
           name: pipeline-agent
         steps:
           - template: terraform.yml
+
     - stage: BuildApp
       displayName: Build webapp
       jobs:
@@ -23,19 +24,7 @@ stages:
           name: Azure Pipelines 
           vmImage: windows-latest
         steps:
-          - task: SonarQubePrepare@5
-            inputs:
-              SonarQube: 'SonarQube'
-              scannerMode: 'CLI'
-              configMode: 'manual'
-              cliProjectKey: 'MultiAppSlot_MultiAppSlot_AYEFUgwE-qm1BgzEhId9'
-              cliProjectName: 'sonar.projectName'
-              cliSources: '.'
           - template: buildapp.yml
-          - task: SonarQubeAnalyze@5
-          - task: SonarQubePublish@5
-            inputs:
-              pollingTimeoutSec: '300'
 
     - stage: DeployApp
       displayName: Deploy app
